@@ -1,6 +1,6 @@
 {
   "name": "ghub-now",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Micro-service for now.sh, that redirects to GitHub (or other) repository page of NPM package",
   "scripts": {
     "test": "prettier-eslint '*.js' --write",
