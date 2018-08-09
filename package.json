@@ -13,7 +13,7 @@
   "dependencies": {
     "get-pkg": "0.3.0",
     "isobject": "3.0.1",
-    "micro": "9.0.2",
+    "micro": "9.3.3",
     "micro-get": "0.1.1",
     "micro-redirect": "1.0.0",
     "parse-github-url": "1.0.2"
