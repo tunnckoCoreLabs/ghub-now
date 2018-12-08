@@ -11,7 +11,7 @@
   },
   "repository": "tunnckoCore/ghub-now",
   "dependencies": {
-    "get-pkg": "0.3.0",
+    "get-pkg": "1.1.0",
     "isobject": "3.0.1",
     "micro": "9.0.2",
     "micro-get": "0.1.1",
