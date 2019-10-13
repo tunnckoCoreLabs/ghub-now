@@ -11,19 +11,16 @@
   },
   "repository": "tunnckoCore/ghub-now",
   "dependencies": {
-    "get-pkg": "0.3.0",
-    "isobject": "3.0.1",
-    "micro": "9.0.2",
-    "micro-get": "0.1.1",
-    "micro-redirect": "1.0.0",
-    "parse-github-url": "1.0.2"
+    "@tunnckocore/package-json": "^1.0.3",
+    "micro": "^9.3.4",
+    "micro-get": "^0.1.1",
+    "micro-redirect": "^1.0.0",
+    "parse-github-url": "^1.0.2"
   },
   "devDependencies": {
-    "eslint-config-tunnckocore": "0.2.0",
-    "husky": "0.14.3",
-    "micro-dev": "1.4.0",
-    "prettier": "1.9.1",
-    "prettier-eslint": "8.2.5",
-    "prettier-eslint-cli": "4.4.2"
+    "@tunnckocore/eslint-config": "^4.2.2",
+    "eslint": "^6.5.1",
+    "micro-dev": "3.0.0",
+    "prettier": "^1.18.2"
   }
 }
