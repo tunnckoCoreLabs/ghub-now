@@ -1,19 +1,36 @@
-const { readFileSync } = require('fs');
+const fs = require('fs');
 const url = require('url');
-const { send } = require('micro');
 const path = require('path');
-const redirect = require('micro-redirect');
-const getRequestsOnly = require('micro-get');
-const packageJson = require('@tunnckocore/package-json');
+const packageJson = require('get-pkg');
 const parseGithub = require('parse-github-url');
 
+function redirect(res, statusCode, location) {
+  res.status(statusCode);
+  res.setHeader('Location', location);
+  res.end();
+}
+
 // eslint-disable-next-line max-statements
-module.exports = getRequestsOnly(async (req, res) => {
+module.exports = async (req, res) => {
+  const ALLOWED_HTTP_METHOD = 'GET';
+  res.setHeader('Access-Control-Request-Method', ALLOWED_HTTP_METHOD);
+
+  if (req.method !== ALLOWED_HTTP_METHOD) {
+    res.status(405);
+    res.send('Method Not Allowed');
+    return;
+  }
+
   // eslint-disable-next-line node/no-deprecated-api
   const parsed = url.parse(req.url);
 
   if (parsed.pathname === '/') {
-    return readFileSync('./home.html', 'utf8');
+    // const index = fs.readFileSync(path.join(__dirname, 'home.html'), 'utf8');
+    // res.setHeader('content-type', 'text/html');
+    // res.status(200);
+    // res.send(index);
+    redirect(res, 301, 'https://ghub.now.sh');
+    return;
   }
 
   const parts = clean(parsed.pathname).split('/');
@@ -36,7 +53,8 @@ module.exports = getRequestsOnly(async (req, res) => {
     pkg = await packageJson(name);
   } catch (err) {
     console.error(err);
-    return send(res, 404, `Package not found or loading error ${name}`);
+    redirect(res, 404, `Package not found or loading error ${name}`);
+    return;
   }
 
   const repoBranch = isScoped ? parts.slice(2) : parts.slice(1);
@@ -55,18 +73,21 @@ module.exports = getRequestsOnly(async (req, res) => {
     const gh = parseGithub(`${pkgUrl}${dir}`);
 
     if (dir) {
-      return redirect(res, 302, `https://${gh.host}/${gh.repo}${dir}`);
+      redirect(res, 302, `https://${gh.host}/${gh.repo}${dir}`);
+      return;
     }
 
     const pathname = gh.pathname.replace('.git', '');
-    return redirect(res, 302, `https://${gh.host}/${pathname}`);
+    redirect(res, 302, `https://${gh.host}/${pathname}`);
+    return;
   }
   if (isString(pkg.homepage)) {
-    return redirect(res, 302, pkg.homepage);
+    redirect(res, 302, pkg.homepage);
+    return;
   }
 
-  return redirect(res, 302, `https://npmjs.com/package/${name}`);
-});
+  redirect(res, 302, `https://npmjs.com/package/${name}`);
+};
 
 function isString(val) {
   return val && typeof val === 'string';

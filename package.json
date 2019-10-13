@@ -2,22 +2,18 @@
   "name": "ghub-now",
   "version": "0.3.0",
   "description": "Micro-service for now.sh, that redirects to GitHub (or other) repository page of NPM package",
-  "scripts": {
-    "start": "micro",
-    "dev": "micro-dev"
-  },
+  "scripts": {},
   "repository": "tunnckoCore/ghub-now",
   "dependencies": {
-    "@tunnckocore/package-json": "^1.0.3",
-    "micro": "^9.3.4",
-    "micro-get": "^0.1.1",
-    "micro-redirect": "^1.0.0",
+    "get-pkg": "^1.1.0",
     "parse-github-url": "^1.0.2"
   },
   "devDependencies": {
     "@tunnckocore/eslint-config": "^4.2.2",
     "eslint": "^6.5.1",
-    "micro-dev": "3.0.0",
     "prettier": "^1.18.2"
+  },
+  "engines": {
+    "node": ">=10.x"
   }
 }
