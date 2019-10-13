@@ -1,10 +1,11 @@
 {
   "name": "ghub-now",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Micro-service for now.sh, that redirects to GitHub (or other) repository page of NPM package",
   "scripts": {},
   "repository": "tunnckoCore/ghub-now",
   "dependencies": {
+    "@tunnckocore/package-json": "^1.0.4-alpha.10",
     "get-pkg": "^1.1.0",
     "parse-github-url": "^1.0.2"
   },

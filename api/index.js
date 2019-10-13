@@ -1,6 +1,6 @@
 const url = require('url');
 const path = require('path');
-const packageJson = require('get-pkg');
+const packageJson = require('@tunnckocore/package-json');
 const parseGithub = require('parse-github-url');
 
 function redirect(res, statusCode, location) {

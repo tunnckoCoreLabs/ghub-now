@@ -394,6 +394,11 @@
     eslint-plugin-react-hooks "^2.1.1"
     eslint-plugin-unicorn "^12.0.1"
 
+"@tunnckocore/package-json@^1.0.4-alpha.10":
+  version "1.0.4-alpha.10"
+  resolved "https://registry.yarnpkg.com/@tunnckocore/package-json/-/package-json-1.0.4-alpha.10.tgz#616c76bdfc2352cdb16bfac4911af5d7bf206d91"
+  integrity sha512-df0AfYBgPLbwg7ysDic4AGnr7h+yIYB9zQbjM9cxicqiZCClMh3KyjU0mG9PxUnD1kzjelkaKiBb/xoBwWe/oA==
+
 "@tunnckocore/utils@^0.9.2":
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/@tunnckocore/utils/-/utils-0.9.2.tgz#cc70575809445db722768fc102c134c4a30263cc"
