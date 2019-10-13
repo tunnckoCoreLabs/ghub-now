@@ -1,4 +1,3 @@
-const fs = require('fs');
 const url = require('url');
 const path = require('path');
 const packageJson = require('get-pkg');

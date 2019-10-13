@@ -1,4 +1,6 @@
 {
+  "version": 2,
+  "alias": ["ghub.now.sh"],
   "routes": [
     { "src": "/(.+)", "dest": "/api/index.js"}
   ]
